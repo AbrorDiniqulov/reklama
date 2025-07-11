@@ -6,6 +6,7 @@
   <title>Gapirish va Yozish</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #00b4db, #0083b0);
@@ -13,6 +14,7 @@
       height: 100vh;
       overflow-x: hidden;
     }
+
     .fullscreen-video {
       position: fixed;
       top: 0; left: 0;
@@ -24,6 +26,7 @@
       justify-content: center;
       flex-direction: column;
     }
+
     .rasm-overlay {
       position: absolute;
       top: 0; left: 0;
@@ -37,12 +40,14 @@
       padding: 20px;
       text-align: center;
     }
+
     .rasm-overlay h1 {
       font-size: 36px;
       margin-bottom: 20px;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
+
     .telegram-button {
       display: none;
       margin-top: 20px;
@@ -56,9 +61,11 @@
       text-decoration: none;
       transition: background 0.3s ease;
     }
+
     .telegram-button:hover {
       background: #0077b3;
     }
+
     .main-content {
       display: none;
       flex-direction: column;
@@ -68,16 +75,19 @@
       padding: 20px;
       text-align: center;
     }
+
     h1 {
       font-size: 38px;
       margin-bottom: 40px;
     }
+
     .button-container {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
     }
+
     .btn {
       background: white;
       color: #0083b0;
@@ -89,10 +99,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
     }
+
     .btn:hover {
       background: #f0f0f0;
       transform: translateY(-3px);
     }
+
     .floating-ad {
       position: fixed;
       bottom: 20px;
@@ -109,6 +121,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .floating-ad .telegram-button {
       display: block;
       position: absolute;
@@ -122,11 +135,7 @@
       text-decoration: none;
       color: #fff;
     }
-    .floating-ad img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+
     @media (max-width: 500px) {
       .floating-ad {
         width: 90vw;
@@ -134,10 +143,12 @@
         right: 5vw;
         bottom: 10px;
       }
+
       .btn {
         font-size: 18px;
         padding: 12px 24px;
       }
+
       h1 {
         font-size: 28px;
       }
@@ -146,7 +157,7 @@
 </head>
 <body>
 
-  <!-- Kirishda to‘liq rasm -->
+  <!-- 1. Kirishda to‘liq reklama (endilikda rasm) -->
   <div class="fullscreen-video" id="fullscreenContainer">
     <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=2"
          alt="Reklama rasmi"
@@ -156,7 +167,7 @@
     </div>
   </div>
 
-  <!-- Asosiy kontent -->
+  <!-- 2. Asosiy kontent -->
   <div class="main-content" id="mainContent">
     <h1>Xush kelibsiz!</h1>
     <div class="button-container">
@@ -165,10 +176,11 @@
     </div>
   </div>
 
-  <!-- Mini reklama -->
+  <!-- 3. Pastdagi mini reklama -->
   <div class="floating-ad" id="floatingAd">
     <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=2"
-         alt="Mini reklama" />
+         alt="Mini reklama"
+         style="width: 100%; height: 100%; object-fit: cover;" />
     <a href="https://t.me/abrordiniqulov" target="_blank" class="telegram-button" id="telegramLink">
       📩 Telegram orqali bog‘lanish
     </a>
