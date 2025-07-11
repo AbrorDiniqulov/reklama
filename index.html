@@ -4,12 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gapirish va Yozish</title>
-
-  <!-- Brauzer keshini buzish (majburiy yangilash) -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -175,16 +169,16 @@
 </head>
 <body>
 
-  <!-- Kirishdagi to‘liq rasm -->
+  <!-- 1. Kirishda to‘liq reklama (rasmli) -->
   <div class="fullscreen-video" id="fullscreenContainer">
-    <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=3"
+    <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=2" 
          alt="Reklama rasmi" />
     <div class="rasm-overlay">
       <h1>Reklamani ko‘rib chiqing</h1>
     </div>
   </div>
 
-  <!-- Asosiy sahifa -->
+  <!-- 2. Asosiy kontent -->
   <div class="main-content" id="mainContent">
     <h1>Xush kelibsiz!</h1>
     <div class="button-container">
@@ -193,9 +187,9 @@
     </div>
   </div>
 
-  <!-- Pastki mini reklama -->
+  <!-- 3. Pastdagi mini reklama -->
   <div class="floating-ad" id="floatingAd">
-    <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=3"
+    <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=2"
          alt="Mini reklama" />
     <a href="https://t.me/abrordiniqulov" target="_blank" class="telegram-button" id="telegramLink">
       📩 Telegram orqali bog‘lanish
@@ -207,7 +201,7 @@
     const mainContent = document.getElementById('mainContent');
     const floatingAd = document.getElementById('floatingAd');
 
-    // 10 soniyadan so‘ng reklama yopiladi va asosiy sahifa ko‘rsatiladi
+    // 10 soniyadan keyin reklamani kichraytirish
     setTimeout(() => {
       fullscreen.style.display = 'none';
       mainContent.style.display = 'flex';
