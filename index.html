@@ -199,24 +199,22 @@
 
   <script>
     const fullscreen = document.getElementById('fullscreenContainer');
-    const mainContent = document.getElementById('mainContent');
-    const floatingAd = document.getElementById('floatingAd');
-    const reklamaVideo = document.getElementById('reklamaVideo');
-    const miniVideo = document.getElementById('miniVideo');
-    const telegramBtn = document.getElementById('telegramLink');
+  const mainContent = document.getElementById('mainContent');
+  const floatingAd = document.getElementById('floatingAd');
+  const miniVideo = document.getElementById('miniVideo');
+  const telegramBtn = document.getElementById('telegramLink');
 
-    // 10 soniyadan keyin reklamani kichraytirish
-    setTimeout(() => {
-      fullscreen.style.display = 'none';
-      mainContent.style.display = 'flex';
-      floatingAd.style.display = 'flex';
-      miniVideo.currentTime = reklamaVideo.currentTime; // davom etgan joydan davom etadi
-    }, 10000);
+  // 10 soniyadan keyin reklamani kichraytirish
+  setTimeout(() => {
+    fullscreen.style.display = 'none';
+    mainContent.style.display = 'flex';
+    floatingAd.style.display = 'flex';
+  }, 10000);
 
-    // Reklama tugaganda telegram tugmasini ko‘rsatish
-    miniVideo.addEventListener('ended', () => {
-      telegramBtn.style.display = 'block';
-    });
+  // Reklama tugaganda telegram tugmasini ko‘rsatish
+  miniVideo.addEventListener('ended', () => {
+    telegramBtn.style.display = 'block';
+  });
   </script>
 
 </body>
