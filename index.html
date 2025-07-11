@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gapirish va Yozish</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      color: white;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .fullscreen-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: black;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .fullscreen-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .video-overlay h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .telegram-button {
+      display: none;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #0088cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .telegram-button:hover {
+      background: #0077b3;
+    }
+
+    .main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 38px;
+      margin-bottom: 40px;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      background: white;
+      color: #0083b0;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-3px);
+    }
+
+    .floating-ad {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      height: 180px;
+      background: black;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      z-index: 888;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-ad video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-ad .telegram-button {
+      display: block;
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      padding: 6px 12px;
+      background: #0088cc;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    @media (max-width: 500px) {
+      .floating-ad {
+        width: 90vw;
+        height: 160px;
+        right: 5vw;
+        bottom: 10px;
+      }
+
+      .btn {
+        font-size: 18px;
+        padding: 12px 24px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Kirishda to‘liq reklama -->
+  <div class="fullscreen-video" id="fullscreenContainer">
+    <video id="reklamaVideo" autoplay muted playsinline>
+      <source src="https://archive.org/download/reklama_202507/Reklama.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay">
+      <h1>Reklamani tomosha qiling</h1>
+    </div>
+  </div>
+
+  <!-- 2. Asosiy kontent -->
+  <div class="main-content" id="mainContent">
+    <h1>Xush kelibsiz!</h1>
+    <div class="button-container">
+      <button class="btn" onclick="location.href='gapirish.html'">🎤 Gapirish qismi</button>
+      <button class="btn" onclick="location.href='yozish.html'">✍️ Yozish qismi</button>
+    </div>
+  </div>
+
+  <!-- 3. Pastdagi mini reklama -->
+  <div class="floating-ad" id="floatingAd">
+    <video id="miniVideo" autoplay muted playsinline>
+      <source src="https://archive.org/download/reklama_202507/Reklama.mp4" type="video/mp4">
+    </video>
+    <a href="https://t.me/abrordiniqulov" target="_blank" class="telegram-button" id="telegramLink">📩 Telegram orqali bog‘lanish</a>
+  </div>
+
+  <script>
+    const fullscreen = document.getElementById('fullscreenContainer');
+    const mainContent = document.getElementById('mainContent');
+    const floatingAd = document.getElementById('floatingAd');
+    const reklamaVideo = document.getElementById('reklamaVideo');
+    const miniVideo = document.getElementById('miniVideo');
+    const telegramBtn = document.getElementById('telegramLink');
+
+    // 10 soniyadan keyin reklamani kichraytirish
+    setTimeout(() => {
+      fullscreen.style.display = 'none';
+      mainContent.style.display = 'flex';
+      floatingAd.style.display = 'flex';
+      miniVideo.currentTime = reklamaVideo.currentTime; // davom etgan joydan davom etadi
+    }, 10000);
+
+    // Reklama tugaganda telegram tugmasini ko‘rsatish
+    miniVideo.addEventListener('ended', () => {
+      telegramBtn.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
