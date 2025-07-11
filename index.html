@@ -15,7 +15,7 @@
       overflow-x: hidden;
     }
 
-    .fullscreen-video {
+    .fullscreen-ad {
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
@@ -27,7 +27,7 @@
       flex-direction: column;
     }
 
-    .fullscreen-video video {
+    .fullscreen-ad img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -52,24 +52,6 @@
       margin-bottom: 20px;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-
-    .telegram-button {
-      display: none;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #0088cc;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .telegram-button:hover {
-      background: #0077b3;
     }
 
     .main-content {
@@ -128,7 +110,7 @@
       justify-content: center;
     }
 
-    .floating-ad video {
+    .floating-ad img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -169,18 +151,15 @@
 </head>
 <body>
 
-  <!-- 1. Kirishda to‘liq reklama (endilikda rasm) -->
-<div class="fullscreen-video" id="fullscreenContainer">
-  <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg" 
-       alt="Reklama rasmi"
-       style="width: 100%; height: 100%; object-fit: cover;" />
-  <div class="rasm-overlay">
-    <h1>Reklamani ko‘rib chiqing</h1>
+  <!-- To‘liq ekranli reklama rasmi -->
+  <div class="fullscreen-ad" id="fullscreenContainer">
+    <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=3" alt="Reklama rasmi" />
+    <div class="rasm-overlay">
+      <h1>Reklamani ko‘rib chiqing</h1>
+    </div>
   </div>
-</div>
 
-
-  <!-- 2. Asosiy kontent -->
+  <!-- Asosiy kontent -->
   <div class="main-content" id="mainContent">
     <h1>Xush kelibsiz!</h1>
     <div class="button-container">
@@ -189,29 +168,25 @@
     </div>
   </div>
 
-  <!-- 3. Pastdagi mini reklama -->
+  <!-- Pastki mini reklama -->
   <div class="floating-ad" id="floatingAd">
-  <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg"
-       alt="Mini reklama"
-       style="width: 100%; height: 100%; object-fit: cover;" />
-  <a href="https://t.me/abrordiniqulov" target="_blank" class="telegram-button" id="telegramLink">
-    📩 Telegram orqali bog‘lanish
-  </a>
-</div>
+    <img src="https://archive.org/download/reklama_202507/IMG_20240720_210639_765.jpg?v=3" alt="Mini reklama" />
+    <a href="https://t.me/abrordiniqulov" target="_blank" class="telegram-button">
+      📩 Telegram orqali bog‘lanish
+    </a>
+  </div>
 
   <script>
-  const fullscreen = document.getElementById('fullscreenContainer');
-  const mainContent = document.getElementById('mainContent');
-  const floatingAd = document.getElementById('floatingAd');
-  const telegramBtn = document.getElementById('telegramLink');
+    const fullscreen = document.getElementById('fullscreenContainer');
+    const mainContent = document.getElementById('mainContent');
+    const floatingAd = document.getElementById('floatingAd');
 
-  // 10 soniyadan keyin reklamani kichraytirish
-  setTimeout(() => {
-    fullscreen.style.display = 'none';
-    mainContent.style.display = 'flex';
-    floatingAd.style.display = 'flex';
-  }, 10000);
-</script>
+    setTimeout(() => {
+      fullscreen.style.display = 'none';
+      mainContent.style.display = 'flex';
+      floatingAd.style.display = 'flex';
+    }, 10000);
+  </script>
 
 </body>
 </html>
